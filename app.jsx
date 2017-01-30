@@ -79,7 +79,7 @@ var Stopwatch = React.createClass({
 				<h2>Stopwatch</h2>
 				<div className="stopwatch-time">{seconds}</div>
 				{ this.state.running ?
-				  <button onClick={this.onStop}>Stop</button> 
+				  <button onClick={this.onStop}>Stop</button>
 				  :
 				  <button onClick={this.onStart}>Start</button> }
 				<button onClick={this.onReset}>Reset</button>
@@ -174,7 +174,7 @@ function Counter (props) {
 	return (
 		<div className="counter">
 			<button className="counter-action decrement" onClick={function() {props.onChange(-1);}}> - </button>
-			<div className="counter-score"> {props.score} </div> 
+			<div className="counter-score"> {props.score} </div>
 			<button className="counter-action increment" onClick={function() {props.onChange(1);}}> + </button>
 		</div>
 	);
@@ -245,7 +245,7 @@ var Application = React.createClass({
 			score: 0,
 			id: nextId,
 		});
-		
+
 		this.setState(this.state);
 		nextId += 1;
 	},
@@ -264,12 +264,12 @@ var Application = React.createClass({
 		    	<div className="players">
 		    		{this.state.players.map(function(player, index) {
 		    			return (
-		    				<Player 
+		    				<Player
 		    					onScoreChange={function(delta) {
 		    							this.onScoreChange(index, delta)}.bind(this)}
 		    					onRemove={function() {this.onRemovePlayer(index)}.bind(this)}
 		    					name={player.name}
-		    					score={player.score} 
+		    					score={player.score}
 		    					key={player.id} />
 		    			)
 		    		}.bind(this))}
@@ -283,4 +283,3 @@ var Application = React.createClass({
 
 
 ReactDOM.render(<Application title="Learning react" initialPlayers={PLAYERS}/>, document.getElementById('container'));
-
