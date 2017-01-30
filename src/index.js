@@ -5,6 +5,6 @@ import './index.css';
 
 
 ReactDOM.render(
-  <App />,
+  <App title="My Scoreboard"/>,
   document.getElementById('container')
 );

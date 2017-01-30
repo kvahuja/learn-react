@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
+import Stats from './Stats';
 
 class Header extends Component {
   render() {
     return (
       <div className="header">
-        <table className="stats">
-          <tbody>
-            <tr>
-              <td>Players:</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>Total Points:</td>
-              <td>500</td>
-            </tr>
-          </tbody>
-        </table>
+        <Stats players={this.props.players}/>
 
-        <h1>Scoreboard</h1>
+        <h1>{this.props.title}</h1>
 
           <div className="stopwatch">
             <h2>Stopwatch</h2>
