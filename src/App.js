@@ -31,8 +31,17 @@ class App extends Component {
       <div className="scoreboard">
           <Header title={this.props.title} players={this.initialPlayers}/>
 
-          <Player />
-
+            <div className="players">
+              {this.initialPlayers.map(function(player, index) {
+                return (
+                  <Player
+                    name={player.name}
+                    score={player.score}
+                    key={player.id} />
+                )
+              }
+            )}
+          </div>
           <AddPlayerForm />
       </div>
     );
