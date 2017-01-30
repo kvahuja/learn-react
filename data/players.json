@@ -1,0 +1,13 @@
+{
+    id: 1,
+    name: "Kapil Viren Ahuja",
+    score: 25,
+}, {
+    id: 2,
+    name: "Aabhya Ahuja",
+    score: 50,
+}, {
+    id: 3,
+    name: "Abeer Ahuja",
+    score: 75,
+},
