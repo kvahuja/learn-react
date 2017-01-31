@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Stopwatch extends Component {
   constructor(props) {
       super(props);
-      
+
       this.state = {
         running: false,
         elaspsedTime: 0,
@@ -36,6 +36,7 @@ class Stopwatch extends Component {
   }
 
   onStart() {
+    console.log('onStart');
       this.setState({
         running: true,
         previousTime: Date.now()

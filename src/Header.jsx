@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Stats from './Stats';
 import Stopwatch from './Stopwatch';
 
+
 class Header extends Component {
   render() {
     return (

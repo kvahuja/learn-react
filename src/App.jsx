@@ -8,17 +8,31 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {players: this.props.initialPlayers};
+
+    this.onScoreChange = this.onScoreChange.bind(this);
   }
+
+  onScoreChange(index, delta) {
+    // console.log('Player data changed at: ' + index);
+    // console.log('with a value of: ' + delta);
+    let localPlayers = this.state.players;
+    localPlayers[index].score += delta;
+    this.setState({
+      players: localPlayers,
+    })
+  }
+
 
   render() {
     return (
       <div className="scoreboard">
-          <Header title={this.props.title} players={this.props.initialPlayers}/>
+          <Header title={this.props.title} players={this.state.players}/>
 
             <div className="players">
-              {this.state.players.map(function(player, index) {
+              {this.state.players.map((player, index) => {
                 return (
                   <Player
+                    onScoreChange={(delta) => this.onScoreChange(index, delta)}
                     name={player.name}
                     score={player.score}
                     key={player.id} />
@@ -39,7 +53,7 @@ App.propTypes = {
     id: React.PropTypes.number.isRequired,
     name: React.PropTypes.string.isRequired,
     score: React.PropTypes.number.isRequired
-  })).isRequired
+  })).isRequired,
 };
 
 App.defaultProps = {

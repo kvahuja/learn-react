@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 class Stats extends Component {
   constructor (props) {
     super(props);
-    this.totalPlayers = props.players.length;
-    this.totalPoints = props.players.reduce(function(total, player) {
-      return total + player.score;
-    }, 0);
   }
 
   render() {
+    this.totalPlayers = this.props.players.length;
+    this.totalPoints = this.props.players.reduce(function(total, player) {
+      return total + player.score;
+    }, 0);
+
     return (
       <table className="stats">
         <tbody>
