@@ -7,32 +7,16 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.initialPlayers = [
-      {
-    		id: 1,
-    		name: "Kapil Viren Ahuja",
-    		score: 25,
-    	},
-    	{
-    		id: 2,
-    		name: "Aabhya Ahuja",
-    		score: 50,
-    	},
-      {
-    		id: 3,
-    		name: "Abeer Ahuja",
-    		score: 75,
-    	},
-    ];
+    this.state = {players: this.props.initialPlayers};
   }
 
   render() {
     return (
       <div className="scoreboard">
-          <Header title={this.props.title} players={this.initialPlayers}/>
+          <Header title={this.props.title} players={this.props.initialPlayers}/>
 
             <div className="players">
-              {this.initialPlayers.map(function(player, index) {
+              {this.state.players.map(function(player, index) {
                 return (
                   <Player
                     name={player.name}
