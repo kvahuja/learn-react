@@ -32,4 +32,18 @@ class App extends Component {
   }
 }
 
+
+App.propTypes = {
+  title: React.PropTypes.string,
+  initialPlayers: React.PropTypes.arrayOf(React.PropTypes.shape({
+    id: React.PropTypes.number.isRequired,
+    name: React.PropTypes.string.isRequired,
+    score: React.PropTypes.number.isRequired
+  })).isRequired
+};
+
+App.defaultProps = {
+  title: "Scoreboard"
+};
+
 export default App;

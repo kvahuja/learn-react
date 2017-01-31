@@ -28,4 +28,8 @@ class Stats extends Component {
   }
 }
 
+Stats.PropTypes = {
+  players: React.PropTypes.array.isRequired
+};
+
 export default Stats;

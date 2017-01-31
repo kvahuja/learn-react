@@ -12,4 +12,8 @@ class Counter extends Component {
   }
 }
 
+Counter.propTypes = {
+  score: React.PropTypes.number.isRequired
+};
+
 export default Counter;

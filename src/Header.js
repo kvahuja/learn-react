@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Stats from './Stats';
+import Stopwatch from './Stopwatch';
 
 class Header extends Component {
   render() {
@@ -9,15 +10,15 @@ class Header extends Component {
 
         <h1>{this.props.title}</h1>
 
-          <div className="stopwatch">
-            <h2>Stopwatch</h2>
-            <div className="stopwatch-time">0</div>
-              <button>Start</button>
-            <button>Reset</button>
-          </div>
+      <Stopwatch />
       </div>
     )
   }
 }
+
+Header.propTypes = {
+  title: React.PropTypes.string.isRequired,
+  players: React.PropTypes.array.isRequired
+};
 
 export default Header;
