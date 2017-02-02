@@ -7,9 +7,14 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {players: this.props.initialPlayers};
+    this.state = {
+      players: this.props.initialPlayers,
+      startIndex: 11
+    };
 
     this.onScoreChange = this.onScoreChange.bind(this);
+    this.onPlayerAdd = this.onPlayerAdd.bind(this);
+    this.onPlayerRemove = this.onPlayerRemove.bind(this);
   }
 
   onScoreChange(index, delta) {
@@ -19,6 +24,31 @@ class App extends Component {
     localPlayers[index].score += delta;
     this.setState({
       players: localPlayers,
+    })
+  }
+
+  onPlayerAdd(name) {
+    let localPlayers = this.state.players;
+
+    localPlayers.push({
+        name: name,
+        score: 0,
+        id: this.state.startIndex
+    })
+
+    this.setState({
+      players: localPlayers,
+      startIndex: this.state.startIndex + 1
+    })
+  }
+
+  onPlayerRemove(index) {
+    console.log('Player removed at:' + index);
+
+    let localPlayers = this.state.players;
+    localPlayers.splice(index, 1);
+    this.setState({
+      players: localPlayers
     })
   }
 
@@ -33,6 +63,7 @@ class App extends Component {
                 return (
                   <Player
                     onScoreChange={(delta) => this.onScoreChange(index, delta)}
+                    onRemove={() => this.onPlayerRemove(index)}
                     name={player.name}
                     score={player.score}
                     key={player.id} />
@@ -40,7 +71,7 @@ class App extends Component {
               }
             )}
           </div>
-          <AddPlayerForm />
+          <AddPlayerForm onAdd={(name) => this.onPlayerAdd(name)}/>
       </div>
     );
   }

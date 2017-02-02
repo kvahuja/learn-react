@@ -23,6 +23,6 @@ const initialPlayers = [
 
 
 ReactDOM.render(
-  <App title="My Scoreboard" initialPlayers={initialPlayers}/>,
+  <App title="My Scoreboard" initialPlayers={initialPlayers} />,
   document.getElementById('container')
 );
